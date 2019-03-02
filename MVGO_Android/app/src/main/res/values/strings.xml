@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MVGO</string>
     <string name="arrival">Arrival</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
