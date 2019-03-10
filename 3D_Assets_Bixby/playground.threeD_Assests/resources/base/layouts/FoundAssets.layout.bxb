@@ -1,33 +1,33 @@
 // this found-asset-macro name can be anything, you need to refer this from a view, FoundAssets.view for example
 layout-macro-def (found-asset-macro) {
   params {
-    param (model) { // this is like your variable name
+    param (models) { // this is like your variable name
       type (3DModel) // this is type of your variable. [Java] private 3DModel model;
       min (Required) max (One)
     }
   }
   content {
     image-card {
-      size (L)
+      size (M)
       
       title-area {
         halign (Start)
         slot1 {
           text {
-            value ("#{value(model.authorName)}")
-            style (Title_M)
+            value ("#{value(models.displayName)}")
+            style (Title_S)
           }
         }
         slot2 {
           single-line {
             text {
-              value ("From #{value(model.displayName)} • #{value(model.displayName)} stars")
+              value ("From #{value(models.authorName)}") // you can add more values to this line with . #
               style (Detail_L)
             }
           }
         }
       }
-      image-url ("[#{value(model.thumbnailUrl)}]")
+      image-url ("[#{value(models.thumbnailUrl)}]")
     }
   }
 }

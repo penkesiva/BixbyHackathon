@@ -1,29 +1,30 @@
 //the name of the file doesnt matter
 result-view {
-  match: 3DModel (model) {
+  match: 3DModel (models) {
     from-output: Search3DModels
   }
 
+  //TODO: how to set multiple templates
   message {
-    template ("Here are few models I found:")
+    if (size(models) > 0) {
+      template ("Here are few models I found:")
+    } else {
+      template ("I didnt find any models")
+    }
   }
 
   render {
-    if (size(model) > 1) {
-      list-of (model) {
+    if (size(models) > 0) {
+      list-of (models) {
         has-details (true)
         where-each (item) {
           // refer the macro from the layout section
           layout-macro (found-asset-macro) {
-            param (model) {
+            param (models) { // this name should match with macro's param
               expression (item)
             }
           }
         }
-      }
-    } else-if (size(model) == 1) {
-      layout-match (model) {
-        mode (Details)
       }
     }
   }
