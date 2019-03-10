@@ -2,7 +2,7 @@
 layout-macro-def (found-asset-macro) {
   params {
     param (models) { // this is like your variable name
-      type (3DModel) // this is type of your variable. [Java] private 3DModel model;
+      type (Model) // this is type of your variable. [Java] private 3DModel model;
       min (Required) max (One)
     }
   }

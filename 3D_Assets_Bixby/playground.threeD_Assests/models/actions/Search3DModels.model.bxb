@@ -7,5 +7,5 @@ action (Search3DModels) {
       min (Required) max (One)
     }
   }
-  output (3DModel)
+  output (Model)
 }

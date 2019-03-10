@@ -1,4 +1,4 @@
-structure (3DModel) {
+structure (Model) {
   description (3D model structure)
   property (displayName) {
     type (DisplayName)

@@ -1,9 +1,10 @@
 // the file name could be anything you like
+
+// currently  not used - TODO
 dialog (Result) {
-  match: 3DModel (model) {
-    from-output: Search3DModels (3DModel)
+  match: Model (model) {
+    from-output: Search3DModels (Model)
   }
-  template("Here are few models I found, Siva Penke:")
-  //{speech("${value(model)}") }
+  template("Here are few models I found")
   {speech ("")}
 }
