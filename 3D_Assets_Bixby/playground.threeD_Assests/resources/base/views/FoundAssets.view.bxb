@@ -1,7 +1,7 @@
 //the name of the file doesnt matter
 result-view {
-  match: 3DModel (models) {
-    from-output: Search3DModels
+  match: 3DModel (models) { // match can be compared to the object comparision in Java
+    from-output: Search3DModels // Get the output from Search3DModels.model.bxb action as models
   }
 
   //TODO: how to set multiple templates
