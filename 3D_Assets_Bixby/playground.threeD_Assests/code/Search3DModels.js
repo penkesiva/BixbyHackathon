@@ -13,11 +13,7 @@ module.exports = {
 }
 
 function searchFor3DAssest(searchString) {
-  let displayName;
-  let authorName;
-  let thumbnailUrl;
-  let objUrl;
-  let mtlUrl;
+  let models = [];
   
   let url = 'https://poly.googleapis.com/v1/' + 'assets?keywords=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
   Console.log('requested url ' + url);
@@ -28,35 +24,32 @@ function searchFor3DAssest(searchString) {
     if (assets) {
       for ( let i = 0; i < assets.length; i ++ ) {
         Console.log("**** New Asset found ****");
+
         let asset = assets[i];
-        thumbnailUrl = asset.thumbnail.url;
-        displayName = asset.displayName;
-        authorName = asset.authorName;
         let format = asset.formats.find( format => { return format.formatType === 'OBJ'; } );
         let obj = format.root;
         let mtl = format.resources.find( resource => { return resource.url.endsWith( 'mtl' ) } );
         
-        objUrl = obj.url;
-        mtlUrl = mtl.url;
-        //let path = obj.url.slice( 0, obj.url.indexOf( obj.relativePath ) );
-        Console.log("**** 7End of New Asset found **** " + thumbnailUrl + ' ' + objUrl  + ' ' + mtlUrl);
+        let model = {
+          displayName : asset.displayName,
+          authorName : asset.authorName,
+          thumbnailUrl : asset.thumbnail.url,
+          objUrl : obj.url,
+          mtlUrl : mtl.url,
+        };
+
+        models.push(model);
       }
     } else {
       Console.log("No Assets found");
       return null;
     }
   }
-  catch(err) { //TODO
+  catch(err) {
     Console.log("Error in POLY API call " + err);
     return null;
   }
 
-  return {
-          displayName : displayName,
-          authorName : authorName,
-          thumbnailUrl : thumbnailUrl,
-          objUrl : objUrl,
-          mtlUrl : mtlUrl
-        };
+  return models;
   
  }
