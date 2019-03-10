@@ -1,0 +1,4 @@
+text (MtlUrl) {
+  extends (viv.core.Url)
+  description (This defines the materials file of the 3D object)
+}

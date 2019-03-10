@@ -1,0 +1,11 @@
+action (Search3DModels) {
+  description (Search for 3D Models or Assets)
+  type (Search)
+  collect {
+    input (searchString) {
+      type (SearchString)
+      min (Required) max (One)
+    }
+  }
+  output (3DModel)
+}

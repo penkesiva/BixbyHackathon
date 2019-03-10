@@ -1,0 +1,25 @@
+structure (3DModel) {
+  description (3D model structure)
+  property (displayName) {
+    type (DisplayName)
+    min (Required) max (One)
+    // init default name
+  }
+  property (authorName) {
+    type (AuthorName)
+    min (Required) max (One)
+    // init default author name
+  }
+  property (thumbnailUrl) {
+    type (ThumbnailUrl)
+    min (Required) max(One)
+  }
+  property (objUrl) {
+    type (ObjUrl)
+    min (Required) max(One)
+  }
+  property (mtlUrl) {
+    type (MtlUrl)
+    min (Required) max(One)
+  }
+}

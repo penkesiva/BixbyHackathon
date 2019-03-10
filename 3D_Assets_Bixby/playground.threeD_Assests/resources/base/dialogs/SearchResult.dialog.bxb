@@ -1,0 +1,9 @@
+// the file name could be anything you like
+dialog (Result) {
+  match: 3DModel (model) {
+    from-output: Search3DModels (3DModel)
+  }
+  template("Here are few models I found, Siva Penke:")
+  //{speech("${value(model)}") }
+  {speech ("")}
+}

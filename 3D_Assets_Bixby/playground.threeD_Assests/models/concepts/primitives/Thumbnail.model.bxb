@@ -1,0 +1,4 @@
+text (ThumbnailUrl) {
+  extends (viv.core.Url)
+  description (This defines the thumbnail png/jpg of 3D object)
+}

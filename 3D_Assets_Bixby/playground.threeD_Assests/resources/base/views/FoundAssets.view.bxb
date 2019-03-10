@@ -1,0 +1,42 @@
+//the name of the file doesnt matter
+result-view {
+  match: 3DModel (model) {
+    from-output: Search3DModels
+  }
+
+  message {
+    template ("Here are few models I found:")
+  }
+
+  render {
+    if (size(model) > 1) {
+      list-of (model) {
+        has-details (true)
+        where-each (item) {
+          // refer the macro from the layout section
+          layout-macro (found-asset-macro) {
+            param (model) {
+              expression (item)
+            }
+          }
+        }
+      }
+    } else-if (size(model) == 1) {
+      layout-match (model) {
+        mode (Details)
+      }
+    }
+  }
+
+  conversation-drivers {
+    conversation-driver {
+      template ("Animate it")
+    }
+    conversation-driver {
+      template ("Make a sound")
+    }
+    conversation-driver {
+      template ("Learn more about it")
+    }
+  }
+}

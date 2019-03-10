@@ -1,0 +1,4 @@
+text (ObjUrl) {
+  extends (viv.core.Url)
+  description (This defines the url of 3D object)
+}

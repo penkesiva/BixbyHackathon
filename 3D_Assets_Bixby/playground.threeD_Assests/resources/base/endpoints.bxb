@@ -1,0 +1,8 @@
+endpoints {
+  action-endpoints {
+    action-endpoint (Search3DModels) {
+      accepted-inputs (searchString)
+      local-endpoint (Search3DModels.js)
+    }
+  }
+}
