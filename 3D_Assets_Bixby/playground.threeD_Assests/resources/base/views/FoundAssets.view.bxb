@@ -7,7 +7,7 @@ result-view {
   //TODO: how to set multiple templates
   message {
     if (size(models) > 0) {
-      template ("Here are few models I found:")
+      template ("Check these out:")
     } else {
       template ("I didnt find any models")
     }
