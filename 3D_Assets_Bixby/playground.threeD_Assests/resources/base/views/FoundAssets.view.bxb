@@ -6,15 +6,17 @@ result-view {
 
   //TODO: how to set multiple templates
   message {
-    if (size(models) > 0) {
+    if (size(models) > 1) {
       template ("Check these out:")
+    } else-if (size(models) == 1) {
+      template ("Check this out")
     } else {
       template ("I didnt find any models")
     }
   }
 
   render {
-    if (size(models) > 0) {
+    if (size(models) > 1) {
       list-of (models) {
         has-details (true)
         where-each (item) {
@@ -26,18 +28,24 @@ result-view {
           }
         }
       }
+    } else-if (size(models) == 1) {
+        layout-match (models) {
+          mode (Details) // setting this mode takes you to different layout - Model_Details
+        }
+      }
+    }
+  
+    conversation-drivers {
+    if(size(models) == 1) {
+      conversation-driver {
+        template ("Animate it")
+      }
+      conversation-driver {
+        template ("Make a sound")
+      }
+      conversation-driver {
+        template ("Learn more about it")
+      }
     }
   }
-
-  conversation-drivers {
-    conversation-driver {
-      template ("Animate it")
-    }
-    conversation-driver {
-      template ("Make a sound")
-    }
-    conversation-driver {
-      template ("Learn more about it")
-    }
-  }
-}
+ }
