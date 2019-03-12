@@ -3,6 +3,9 @@
 var Console = require('console');
 var Http = require('http');
 
+// available categories in poly - https://developers.google.com/poly/reference/api/rest/v1/assets/list
+var categories = ['architecture', 'animals', 'art', 'scenes', 'food', 'nature', 'objects', 'people', 'technology', 'transport'];
+
 // Public API key - change to your own key for production use.
 // https://poly.googleapis.com/v1/assets/ASSET_ID_HERE?key=YOUR_API_KEY_HERE
 // https://poly.googleapis.com/v1/assets?keywords=${keywords}&format=OBJ&key=${API_KEY}
@@ -14,8 +17,14 @@ module.exports = {
 
 function searchFor3DAssest(searchString) {
   let models = [];
+  let url;
   
-  let url = 'https://poly.googleapis.com/v1/' + 'assets?keywords=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
+  if (searchString in categories) {
+    url = 'https://poly.googleapis.com/v1/' + 'assets?category=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
+  } else {
+    url = 'https://poly.googleapis.com/v1/' + 'assets?keywords=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
+  }
+
   Console.log('requested url ' + url);
   
   try {
