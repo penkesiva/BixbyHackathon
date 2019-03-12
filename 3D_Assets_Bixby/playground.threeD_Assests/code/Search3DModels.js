@@ -18,8 +18,8 @@ module.exports = {
 function searchFor3DAssest(searchString) {
   let models = [];
   let url;
-  
-  if (searchString in categories) {
+
+  if (categories.indexOf(searchString.trim()) > -1) {
     url = 'https://poly.googleapis.com/v1/' + 'assets?category=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
   } else {
     url = 'https://poly.googleapis.com/v1/' + 'assets?keywords=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
