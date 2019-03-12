@@ -8,6 +8,16 @@ layout {
     section {
       content {
         
+        title-area {
+          halign (Start)
+          slot1 {
+            text {
+              value ("Sorry, currently 3D rendering is not supported!\n")
+              style (Title_S)
+            }
+          }
+        }
+        
         //this is a sort of hack to use image-card with no contents on it. Other alternative could be image-carousel
         image-card {
           image-url ("[#{value(model.thumbnailUrl)}]")
