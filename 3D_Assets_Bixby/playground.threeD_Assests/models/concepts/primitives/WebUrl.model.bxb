@@ -1,0 +1,4 @@
+text (WebUrl) {
+  extends (viv.core.Url)
+  description (This defines poly website url)
+}

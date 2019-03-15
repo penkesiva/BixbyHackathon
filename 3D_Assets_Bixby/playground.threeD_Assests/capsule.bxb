@@ -5,4 +5,7 @@ capsule {
   targets {
     target (bixby-mobile-en-US)
   }
+  capsule-imports {
+    import (viv.punchoutToApp) {as (punchoutToApp) version (1.0.0)}
+  }
 }

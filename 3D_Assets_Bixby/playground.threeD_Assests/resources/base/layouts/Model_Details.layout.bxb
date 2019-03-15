@@ -12,40 +12,56 @@ layout {
           halign (Start)
           slot1 {
             text {
-              value ("Sorry, currently 3D rendering is not supported!\n")
+              value ("!!! Note, currently 3D rendering is not supported!")
               style (Title_S)
             }
           }
         }
         
-        //this is a sort of hack to use image-card with no contents on it. Other alternative could be image-carousel
-        image-card {
-          image-url ("[#{value(model.thumbnailUrl)}]")
-          
-          title-area {
-            halign (Start)
-            slot1 {
-              text {
-                value ("")
-                style (Title_L)
+        compound-card {
+          content {
+              //this is a sort of hack to use image-card with no contents on it. Other alternative could be image-carousel
+              image-card {
+                image-url ("[#{value(model.thumbnailUrl)}]")
+
+                title-area {
+                  halign (Start)
+                  slot1 {
+                    text {
+                      value ("")
+                      style (Title_L)
+                    }
+                  }
+                }
               }
-            }
+              title-area {
+                halign (Start)
+                slot1 {
+                  text {
+                    value ("#{value(model.displayName)}")
+                    style (Title_L)
+                  }
+                }
+                slot2 {
+                  paragraph {
+                    value ("From #{value(model.authorName)}")
+                    style (Title_XS)
+                  }
+                }
+                slot3 {
+                  paragraph {
+                    value ("From #{value(model.webUrl)}")
+                    style (Title_XS)
+                  }
+                }
+              }
           }
-        }
-        title-area {
-          halign (Start)
-          slot1 {
-            text {
-              value ("#{value(model.displayName)}")
-              style (Title_L)
-            }
-          }
-          slot2 {
-            paragraph {
-              value ("From #{value(model.authorName)}")
-              style (Title_XS)
-            }
-          }
+          on-click {
+           intent {
+             goal {@conversational viv.punchoutToApp.Punchout}
+             value-set: viv.punchoutToApp.PunchoutString  {$expr(model.webUrl)}
+           }
+         }
         }
       }
     }

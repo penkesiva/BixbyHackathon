@@ -18,6 +18,7 @@ module.exports = {
 function searchFor3DAssest(searchString) {
   let models = [];
   let url;
+  let webUrl = "https://poly.google.com/view/"; // for punchout
 
   if (categories.indexOf(searchString.trim()) > -1) {
     url = 'https://poly.googleapis.com/v1/' + 'assets?category=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
@@ -32,19 +33,23 @@ function searchFor3DAssest(searchString) {
     let assets = response.assets;
     if (assets) {
       for ( let i = 0; i < assets.length; i ++ ) {
-        Console.log("**** New Asset found ****");
+        Console.log("**** Hurray, found asset " + i);
 
         let asset = assets[i];
+        let assetName = assets[i].name.split('/'); // "name/assetID"
+        let assetId = assetName[1]; // get assetId here
         let format = asset.formats.find( format => { return format.formatType === 'OBJ'; } );
         let obj = format.root;
         let mtl = format.resources.find( resource => { return resource.url.endsWith( 'mtl' ) } );
         
+        // build the model before adding it to the list of models
         let model = {
           displayName : asset.displayName,
           authorName : asset.authorName,
           thumbnailUrl : asset.thumbnail.url,
           objUrl : obj.url,
           mtlUrl : mtl.url,
+          webUrl : webUrl + assetId
         };
 
         models.push(model);

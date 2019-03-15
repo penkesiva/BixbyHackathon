@@ -20,10 +20,13 @@ result-view {
       list-of (models) {
         has-details (true)
         where-each (item) {
-          // refer the macro from the layout section
-          layout-macro (found-asset-macro) {
-            param (models) { // this name should match with macro's param
-              expression (item)
+          compound-card {
+            content {
+              layout-macro (found-asset-macro) {
+                param (models) {
+                  expression (item)
+                }
+              }
             }
           }
         }

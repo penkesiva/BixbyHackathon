@@ -22,4 +22,8 @@ structure (Model) {
     type (MtlUrl)
     min (Required) max(One)
   }
+  property (webUrl) {
+    type (WebUrl)
+    min (Required) max(One)
+  }
 }
