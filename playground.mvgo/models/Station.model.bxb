@@ -1,0 +1,18 @@
+// enum (Station) {
+//   description (List of MVGO shuttle stations)
+//   symbol (Mountain View Transit Center)
+//   symbol (310 E Evelyn Parking Lot)
+//   symbol (Middlefield @ N Whisman)
+//   symbol (E Middlefield Rd @ Ellis St)
+//   symbol (Clyde Ave)
+//   symbol (313 Fairchild)
+//   symbol (545 N Whisman)
+//   symbol (389 N Whisman)
+//   symbol (Whisman & Middlefield)
+//   symbol (Ferry Morse way @ Evelyn Ave)
+// }
+
+name (Station) {
+  description (Name of the author)
+}
+

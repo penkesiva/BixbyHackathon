@@ -1,0 +1,7 @@
+// enum (BoardingStation) {
+//   description (Station where user will get aboard the shuttle)
+//   features {
+//     transient
+//   }
+//   role-of (Station)
+// }

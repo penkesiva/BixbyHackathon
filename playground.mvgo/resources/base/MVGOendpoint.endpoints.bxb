@@ -1,0 +1,8 @@
+endpoints {
+  action-endpoints {
+    action-endpoint (SeachNextShuttle) {
+      accepted-inputs (boardingStation)
+      local-endpoint (SearchMVGOShuttle.js)
+    }
+  }
+}

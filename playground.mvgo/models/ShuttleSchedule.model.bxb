@@ -1,0 +1,7 @@
+structure (ShuttleSchedule) {
+  description (MVGO shuttle schedule)
+  property (speech) {
+    type (Speech)
+    min (Required) max (One)
+  }
+}

@@ -1,0 +1,11 @@
+action (SeachNextShuttle) {
+  type (Search)
+  description (Find when the next shuttle will arrive)
+  collect {
+    input (boardingStation) {
+      type (Station)
+      min (Required) max (One)
+    }
+  }
+  output (ShuttleSchedule)
+}

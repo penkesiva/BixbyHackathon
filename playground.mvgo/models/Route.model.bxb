@@ -1,0 +1,6 @@
+enum (Route) {
+  description (MVGO shuttle routes)
+  symbol (East Bayshore)
+  symbol (East Whisman)
+  symbol (West Bayshore)
+}

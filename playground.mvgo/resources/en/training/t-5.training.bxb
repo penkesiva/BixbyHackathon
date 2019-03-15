@@ -1,0 +1,5 @@
+train (t-5kn7v2ditd1r715wkygx2hp93) {
+  utterance ("[g:SeachNextShuttle] Show me next shuttle from (clyde ave)[v:Station]")
+  plan (Y2BmkC/ISaxML8ovzUvRyy1Lz9cLzigtKclJDU7OSE0pzUllUMBQkJqYnOGXWlECVckgjqGiJLEkMz+PgYmBEYgZgCQjAwhA+QA=)
+  last-modified (1552686584329)
+}
