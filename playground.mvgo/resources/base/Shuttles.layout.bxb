@@ -1,0 +1,15 @@
+layout {
+  match: ShuttleSchedule (ss)
+  mode (Summary)
+  
+  content {
+    section {
+      content {
+        paragraph {
+          value ("#{value(ss.speech)}")
+          style (Detail_M)
+        }
+      }
+    }
+  }
+}

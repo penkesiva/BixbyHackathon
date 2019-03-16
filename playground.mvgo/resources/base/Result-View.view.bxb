@@ -1,0 +1,19 @@
+//the name of the file doesnt matter
+result-view {
+  match: ShuttleSchedule (ss) { // match can be compared to the object comparision in Java
+    from-output: SeachNextShuttle // Get the output from Search3DModels.model.bxb action as models
+  }
+
+  //TODO: how to set multiple templates
+  message {
+    template (MVGO Schedule)
+    {speech("${value(ss.speech)}") }
+  }
+
+
+  render {         
+    layout-match (ss) {
+      mode (Summary)
+    }
+  }
+ }
