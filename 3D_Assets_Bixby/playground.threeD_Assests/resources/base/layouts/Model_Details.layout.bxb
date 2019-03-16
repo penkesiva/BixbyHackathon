@@ -50,7 +50,7 @@ layout {
                 }
                 slot3 {
                   paragraph {
-                    value ("From #{value(model.webUrl)}")
+                    value ("View in Browser")
                     style (Title_XS)
                   }
                 }
