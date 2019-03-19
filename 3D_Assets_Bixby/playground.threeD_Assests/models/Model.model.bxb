@@ -1,3 +1,13 @@
+// this model defines the Model output as a structure of six elements
+// [c++] struct Model {
+//          DisplayName displayName;
+//          AuthorName authorName;
+//          ThumbnailUrl thumbnailUrl;
+//          ObjUrl objUrl;
+//          MtlUrl mtlUrl;
+//          WebUrl webUrl;
+//      }
+
 structure (Model) {
   description (3D model structure)
   property (displayName) {

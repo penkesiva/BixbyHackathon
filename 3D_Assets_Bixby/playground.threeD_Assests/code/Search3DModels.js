@@ -1,15 +1,16 @@
 "use strict";
 
-var Console = require('console');
-var Http = require('http');
+var out = require('console');
+var my_http = require('http');
+var con = require('config');
 
 // available categories in poly - https://developers.google.com/poly/reference/api/rest/v1/assets/list
 var categories = ['architecture', 'animals', 'art', 'scenes', 'food', 'nature', 'objects', 'people', 'technology', 'transport'];
 
 // Public API key - change to your own key for production use.
-// https://poly.googleapis.com/v1/assets/ASSET_ID_HERE?key=YOUR_API_KEY_HERE
+// https://poly.googleapis.com/v1/assets/ASSET_ID_HERE?key=$(API_KEY)
 // https://poly.googleapis.com/v1/assets?keywords=${keywords}&format=OBJ&key=${API_KEY}
-const POLY_API_KEY = "AIzaSyB5Wo2XxUHYa1KyDwZTcF5HkfwagCQlvHE";
+const POLY_API_KEY = con.get("POLY_API_KEY");
 
 module.exports = {
   function: searchFor3DAssest
@@ -17,24 +18,26 @@ module.exports = {
 
 function searchFor3DAssest(searchString) {
   let models = [];
-  let url;
-  let webUrl = "https://poly.google.com/view/"; // for punchout
+  let polyUrl;
+  // for punchout (be able to launch other apps from Bixby Client)
+  let polyWebUrl = con.get("polyWebUrl");
+  let polyApiBaseUrl = con.get("polyApiBaseUrl");
 
+  // lookup if searchString exists in available categories
   if (categories.indexOf(searchString.trim()) > -1) {
-    url = 'https://poly.googleapis.com/v1/' + 'assets?category=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
+    polyUrl = polyApiBaseUrl + 'assets?category=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
   } else {
-    url = 'https://poly.googleapis.com/v1/' + 'assets?keywords=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
+    polyUrl = polyApiBaseUrl + 'assets?keywords=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
   }
 
-  Console.log('requested url ' + url);
+  out.log('requested polyUrl ' + polyUrl);
   
   try {
-    let response = Http.getUrl(url, { format: 'json' });
+    let response = my_http.getUrl(polyUrl, { format: 'json' });
     let assets = response.assets;
     if (assets) {
       for ( let i = 0; i < assets.length; i ++ ) {
-        Console.log("**** Hurray, found asset " + i);
-
+        // Found asset, lets parse JSON
         let asset = assets[i];
         let assetName = assets[i].name.split('/'); // "name/assetID"
         let assetId = assetName[1]; // get assetId here
@@ -49,21 +52,20 @@ function searchFor3DAssest(searchString) {
           thumbnailUrl : asset.thumbnail.url,
           objUrl : obj.url,
           mtlUrl : mtl.url,
-          webUrl : webUrl + assetId
+          webUrl : polyWebUrl + assetId
         };
 
         models.push(model);
       }
     } else {
-      Console.log("No Assets found");
+      out.log("Oops.. No Assets found");
       return null;
     }
   }
   catch(err) {
-    Console.log("Error in POLY API call " + err);
+    out.log("Error in POLY API call " + err);
     return null;
   }
 
   return models;
-  
  }

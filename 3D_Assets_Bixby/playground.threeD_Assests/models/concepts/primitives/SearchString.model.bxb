@@ -1,6 +1,8 @@
+// this model declares SearchString as name type
+// [Java] more like declaring a local variable of type SearchString
 name (SearchString) {
   description (User search string)
     features {
-    transient
+    transient // dont preserve this variable type across execution context
   }
 }

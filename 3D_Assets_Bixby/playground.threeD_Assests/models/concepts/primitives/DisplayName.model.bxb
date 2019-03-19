@@ -1,3 +1,5 @@
+// this model declares DisplayName as 'name' type
+// [Java] more like specifying user-defined type called DisplayName
 name (DisplayName) {
   description (The name of the asset that is displayed)
 }

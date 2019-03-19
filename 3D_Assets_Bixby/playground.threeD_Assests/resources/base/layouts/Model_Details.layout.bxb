@@ -2,7 +2,7 @@
 
 layout {
   match: Model (model)
-  mode (Details) // Mode comparion is happens here; in this case mode is coming from FoundAssets.view
+  mode (Details) // Mode comparision happens here; in this case mode it's coming from FoundAssets.view
 
   content {
     section {

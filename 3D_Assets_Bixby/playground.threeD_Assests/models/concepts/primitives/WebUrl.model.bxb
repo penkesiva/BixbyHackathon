@@ -1,3 +1,5 @@
+// this model declares WebUrl as 'text' type
+// [Java] more like specifying user-defined type called WebUrl
 text (WebUrl) {
   extends (viv.core.Url)
   description (This defines poly website url)

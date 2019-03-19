@@ -1,3 +1,5 @@
+// an action is more like function declaration
+// [Java] Model Search3DModels(SearchString searchString);
 action (Search3DModels) {
   description (Search for 3D Models or Assets)
   type (Search)

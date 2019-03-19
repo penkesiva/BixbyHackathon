@@ -1,4 +1,4 @@
-// this found-asset-macro name can be anything, you need to refer this from a view, FoundAssets.view for example
+// this found-asset-macro name can be anything, you need to refer this from a view, FoundAssets.view for ex:
 layout-macro-def (found-asset-macro) {
   params {
     param (models) { // this is like your variable name
@@ -17,7 +17,7 @@ layout-macro-def (found-asset-macro) {
         slot1 {
           text {
             value ("#{value(models.displayName)}")
-            style (Title_S) 
+            style (Title_S)
           }
         }
         slot2 {
