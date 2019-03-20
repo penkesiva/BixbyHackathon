@@ -14,22 +14,27 @@ var polyApiBaseUrl="https://poly.googleapis.com/v1/";
 var polyWebUrl="https://poly.google.com/view/";
 const POLY_API_KEY="AIzaSyB5Wo2XxUHYa1KyDwZTcF5HkfwagCQlvHE";
 
+// Skecthfab (sf) API
+// https://api.sketchfab.com/v3/search?type=models&q=heart
+var sfApiBaseUrl="https://api.sketchfab.com/v3/search?type=models&q=";
+
 module.exports = {
   function: searchFor3DAssest
 }
 
 function searchFor3DAssest(searchString) {
   let models = [];
-  let polyUrl;
+  let polyUrl, sfUrl;
 
   // lookup if searchString exists in available categories
   if (categories.indexOf(searchString.trim()) > -1) {
     polyUrl = polyApiBaseUrl + 'assets?category=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
   } else {
     polyUrl = polyApiBaseUrl + 'assets?keywords=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
+    sfUrl = sfApiBaseUrl + searchString;
   }
 
-  out.log('requested polyUrl ' + polyUrl);
+  out.log('requested polyUrl ' + polyUrl + ' sfUrl: ' + sfUrl);
   
   try {
     let response = my_http.getUrl(polyUrl, { format: 'json' });
@@ -57,12 +62,46 @@ function searchFor3DAssest(searchString) {
         models.push(model);
       }
     } else {
-      out.log("Oops.. No Assets found");
+      out.log("Oops.. No Assets found in Poly");
+      return null;
+    }
+  } catch(err) {
+    out.log("Error in POLY API call " + err);
+    return null;
+  }
+  
+  // lets get SketchFab response
+  try {
+    let response = my_http.getUrl(sfUrl, { format: 'json' });
+    let assets = response.results;
+    if (assets) {
+      for ( let i = 0; i < assets.length; i ++ ) {
+        // Found asset, lets parse JSON
+        let asset = assets[i];
+        let viewerUrl = asset.viewerUrl;
+        
+        out.log('Viewer Url ' + viewerUrl + ' ' + asset.name);
+        //let thumbnails = asset.thumbnails;//.images[i].url;
+        
+        // build the model before adding it to the list of models
+        let model = {
+          displayName : asset.name,
+          authorName : asset.user.displayName,
+          thumbnailUrl : asset.thumbnails.images[3].url,
+          objUrl : asset.thumbnails.images[3].url, // TODO: sketchfab supports gltf
+          mtlUrl : asset.thumbnails.images[3].url, // TODO: skecthfab supports gltf
+          webUrl : viewerUrl
+        };
+
+        models.push(model);
+      }
+    } else {
+      out.log("Oops.. No Assets found in SketchFab");
       return null;
     }
   }
   catch(err) {
-    out.log("Error in POLY API call " + err);
+    out.log("Error in SkecthFab API call " + err);
     return null;
   }
 
