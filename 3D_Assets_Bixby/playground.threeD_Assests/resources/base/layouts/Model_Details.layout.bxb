@@ -8,16 +8,6 @@ layout {
     section {
       content {
         
-        title-area {
-          halign (Start)
-          slot1 {
-            text {
-              value ("!!! Note, currently 3D rendering is not supported!")
-              style (Title_S)
-            }
-          }
-        }
-        
         compound-card {
           content {
               //this is a sort of hack to use image-card with no contents on it. Other alternative could be image-carousel
@@ -28,8 +18,8 @@ layout {
                   halign (Start)
                   slot1 {
                     text {
-                      value ("")
-                      style (Title_L)
+                      value ("***3D rendering is not supported. Click here to launch in browser.")
+                      style (Title_S)
                     }
                   }
                 }
@@ -39,19 +29,19 @@ layout {
                 slot1 {
                   text {
                     value ("#{value(model.displayName)}")
-                    style (Title_L)
+                    style (Title_M)
                   }
                 }
                 slot2 {
                   paragraph {
                     value ("From #{value(model.authorName)}")
-                    style (Title_XS)
+                    style (Detail_M)
                   }
                 }
                 slot3 {
                   paragraph {
                     value ("View in Browser")
-                    style (Title_XS)
+                    style (Detail_M_Soft)
                   }
                 }
               }
@@ -63,13 +53,14 @@ layout {
            }
          }
         }
+        
       }
     }
     section {
       title ("Description")
       content {
         paragraph {
-          value ("Tyrannosaurus rex was one of the largest land carnivores of all time; the largest complete specimen, located at the Field Museum of Natural History under the name FMNH PR2081 and nicknamed Sue, measured 12.8 meters (42 ft) long, and was 3.66 meters (12 ft) tall at the hips, and according to the most recent studies estimated to have weighed between 8.4 metric tons (9.3 short tons) to 14 metric tons (15.4 short tons) when alive.Not every adult Tyrannosaurus specimen recovered is as big. Historically average adult mass estimates have varied widely over the years, from as low as 4.5 metric tons (5.0 short tons), to more than 7.2 metric tons (7.9 short tons), with most modern estimates ranging between 5.4 metric tons (6.0 short tons) and 8.0 metric tons (8.8 short tons) - Source: Wikipedia")
+          value ("For more information about this model, please click on the image above.")
           style (Detail_L)
         }
       }
