@@ -10,7 +10,9 @@ var categories = ['architecture', 'animals', 'art', 'scenes', 'food', 'nature', 
 // Public API key - change to your own key for production use.
 // https://poly.googleapis.com/v1/assets/ASSET_ID_HERE?key=$(API_KEY)
 // https://poly.googleapis.com/v1/assets?keywords=${keywords}&format=OBJ&key=${API_KEY}
-const POLY_API_KEY = con.get("POLY_API_KEY");
+var polyApiBaseUrl="https://poly.googleapis.com/v1/";
+var polyWebUrl="https://poly.google.com/view/";
+const POLY_API_KEY="AIzaSyB5Wo2XxUHYa1KyDwZTcF5HkfwagCQlvHE";
 
 module.exports = {
   function: searchFor3DAssest
@@ -19,9 +21,6 @@ module.exports = {
 function searchFor3DAssest(searchString) {
   let models = [];
   let polyUrl;
-  // for punchout (be able to launch other apps from Bixby Client)
-  let polyWebUrl = con.get("polyWebUrl");
-  let polyApiBaseUrl = con.get("polyApiBaseUrl");
 
   // lookup if searchString exists in available categories
   if (categories.indexOf(searchString.trim()) > -1) {
