@@ -12,14 +12,15 @@ layout {
           content {
               //this is a sort of hack to use image-card with no contents on it. Other alternative could be image-carousel
               image-card {
+                aspect-ratio (1:1)
                 image-url ("[#{value(model.thumbnailUrl)}]")
 
                 title-area {
                   halign (Start)
                   slot1 {
                     text {
-                      value ("***3D rendering is not supported. Click here to launch in browser.")
-                      style (Title_S)
+                      value ("*** 3D rendering is not supported. Click here to launch in browser ***")
+                      style (Title_XS)
                     }
                   }
                 }

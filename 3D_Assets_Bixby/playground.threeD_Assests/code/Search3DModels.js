@@ -34,8 +34,9 @@ function searchFor3DAssest(searchString) {
     sfUrl = sfApiBaseUrl + searchString;
   }
 
-  out.log('requested polyUrl ' + polyUrl + ' sfUrl: ' + sfUrl);
+  //out.log('requested polyUrl ' + polyUrl + ' sfUrl: ' + sfUrl);
   
+  // lets get Poly response
   try {
     let response = my_http.getUrl(polyUrl, { format: 'json' });
     let assets = response.assets;
@@ -87,9 +88,9 @@ function searchFor3DAssest(searchString) {
         let model = {
           displayName : asset.name,
           authorName : asset.user.displayName,
-          thumbnailUrl : asset.thumbnails.images[3].url,
-          objUrl : asset.thumbnails.images[3].url, // TODO: sketchfab supports gltf
-          mtlUrl : asset.thumbnails.images[3].url, // TODO: skecthfab supports gltf
+          thumbnailUrl : asset.thumbnails.images[3].url, // index 3 gives highest res thumbnails
+          objUrl : "unknown", // TODO: sketchfab supports gltf
+          mtlUrl : "unknown",
           webUrl : viewerUrl
         };
 
