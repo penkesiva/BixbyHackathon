@@ -61,8 +61,8 @@ layout {
       title ("Description")
       content {
         paragraph {
-          value ("For more information about this model, please click on the image above.")
-          style (Detail_L)
+          value ("[#{value(model.description)}]")
+          style (Detail_M_Soft)
         }
       }
     }

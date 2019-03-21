@@ -36,4 +36,8 @@ structure (Model) {
     type (WebUrl)
     min (Required) max(One)
   }
+  property (description) {
+    type (Description)
+    min (Required) max (One)
+  }
 }

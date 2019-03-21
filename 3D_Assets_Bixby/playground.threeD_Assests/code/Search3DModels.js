@@ -57,7 +57,8 @@ function searchFor3DAssest(searchString) {
           thumbnailUrl : asset.thumbnail.url,
           objUrl : obj.url,
           mtlUrl : mtl.url,
-          webUrl : polyWebUrl + assetId
+          webUrl : polyWebUrl + assetId,
+          description : asset.description
         };
 
         models.push(model);
@@ -80,10 +81,7 @@ function searchFor3DAssest(searchString) {
         // Found asset, lets parse JSON
         let asset = assets[i];
         let viewerUrl = asset.viewerUrl;
-        
-        out.log('Viewer Url ' + viewerUrl + ' ' + asset.name);
-        //let thumbnails = asset.thumbnails;//.images[i].url;
-        
+
         // build the model before adding it to the list of models
         let model = {
           displayName : asset.name,
@@ -91,7 +89,8 @@ function searchFor3DAssest(searchString) {
           thumbnailUrl : asset.thumbnails.images[3].url, // index 3 gives highest res thumbnails
           objUrl : "unknown", // TODO: sketchfab supports gltf
           mtlUrl : "unknown",
-          webUrl : viewerUrl
+          webUrl : viewerUrl,
+          description : asset.description
         };
 
         models.push(model);

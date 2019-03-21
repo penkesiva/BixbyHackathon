@@ -1,0 +1,5 @@
+// this model declares Description as text type
+// [Java] more like specifying user-defined type called Description
+text (Description) {
+  description (description of the asset)
+}
