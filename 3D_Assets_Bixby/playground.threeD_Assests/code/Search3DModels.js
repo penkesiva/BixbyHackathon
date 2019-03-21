@@ -38,10 +38,12 @@ function searchFor3DAssest(searchString) {
     polyUrl = polyApiBaseUrl + 'assets?category=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
   } else {
     polyUrl = encodeURI(polyApiBaseUrl + 'assets?keywords=' + searchString + '&format=OBJ&key=' + POLY_API_KEY);
-    sfUrl = encodeURI(sfApiBaseUrl + searchString);
   }
 
+  sfUrl = encodeURI(sfApiBaseUrl + searchString);
+
   //out.log('requested polyUrl ' + polyUrl + ' sfUrl: ' + sfUrl);
+
   // lets get Poly response
   try {
     let response = my_http.getUrl(polyUrl, { format: 'json' });
@@ -76,11 +78,9 @@ function searchFor3DAssest(searchString) {
       }
     } else {
       out.log("Oops.. No Assets found in Poly");
-      return null;
     }
   } catch(err) {
     out.log("Error in POLY API call " + err);
-    return null;
   }
   
   // lets get SketchFab response
@@ -93,6 +93,7 @@ function searchFor3DAssest(searchString) {
         let asset = assets[i];
         let viewerUrl = asset.viewerUrl;
         
+        // Look for assets with high res thumbnails
         if( asset.thumbnails.images.length < 4 )
           continue;
 
@@ -111,13 +112,14 @@ function searchFor3DAssest(searchString) {
       }
     } else {
       out.log("Oops.. No Assets found in SketchFab");
-      return null;
     }
   }
   catch(err) {
     out.log("Error in SkecthFab API call " + err);
-    return null;
   }
 
-  return models;
+  if (models.length > 0)
+    return models;
+  
+  return null;
  }
