@@ -1,0 +1,5 @@
+train (t-ceethynxt13etn04w8k82h18m) {
+  utterance ("[g:Search3DModels] show 3d models of (Buenos Aires Argentina)[v:SearchString]")
+  plan (Y2BmUMjPSy1OzEupSi3KL9YryShKTXWJdywuTi0p1vPNT0nNYdDEoyI4NbEoOcPYBayymEGdoNLgkqLMvHQGJgZGIGYAkowMIADlAwA=)
+  last-modified (1553128882016)
+}

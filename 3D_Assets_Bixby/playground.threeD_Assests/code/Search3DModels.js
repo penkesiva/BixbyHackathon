@@ -22,6 +22,13 @@ module.exports = {
   function: searchFor3DAssest
 }
 
+function isAvailableInPoly(asset) {
+  if ( asset.formats && asset.description && asset.displayName && asset.authorName && asset.thumbnail.url ) {
+    return true;
+  }
+  return false;
+}
+
 function searchFor3DAssest(searchString) {
   let models = [];
   let polyUrl, sfUrl;
@@ -30,26 +37,30 @@ function searchFor3DAssest(searchString) {
   if (categories.indexOf(searchString.trim()) > -1) {
     polyUrl = polyApiBaseUrl + 'assets?category=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
   } else {
-    polyUrl = polyApiBaseUrl + 'assets?keywords=' + searchString + '&format=OBJ&key=' + POLY_API_KEY;
-    sfUrl = sfApiBaseUrl + searchString;
+    polyUrl = encodeURI(polyApiBaseUrl + 'assets?keywords=' + searchString + '&format=OBJ&key=' + POLY_API_KEY);
+    sfUrl = encodeURI(sfApiBaseUrl + searchString);
   }
 
   //out.log('requested polyUrl ' + polyUrl + ' sfUrl: ' + sfUrl);
-  
   // lets get Poly response
   try {
     let response = my_http.getUrl(polyUrl, { format: 'json' });
     let assets = response.assets;
     if (assets) {
       for ( let i = 0; i < assets.length; i ++ ) {
-        // Found asset, lets parse JSON
+        // found asset
         let asset = assets[i];
+        // check if all elements in the json are not null
+        if (!isAvailableInPoly(asset))
+          continue;
+
+        // lets parse JSON
         let assetName = assets[i].name.split('/'); // "name/assetID"
         let assetId = assetName[1]; // get assetId here
-        let format = asset.formats.find( format => { return format.formatType === 'OBJ'; } );
+        let format = asset.formats.find( format => { return format.formatType == 'OBJ'; } );
         let obj = format.root;
         let mtl = format.resources.find( resource => { return resource.url.endsWith( 'mtl' ) } );
-        
+
         // build the model before adding it to the list of models
         let model = {
           displayName : asset.displayName,
@@ -81,12 +92,15 @@ function searchFor3DAssest(searchString) {
         // Found asset, lets parse JSON
         let asset = assets[i];
         let viewerUrl = asset.viewerUrl;
+        
+        if( asset.thumbnails.images.length < 4 )
+          continue;
 
         // build the model before adding it to the list of models
         let model = {
           displayName : asset.name,
           authorName : asset.user.displayName,
-          thumbnailUrl : asset.thumbnails.images[3].url, // index 3 gives highest res thumbnails
+          thumbnailUrl : asset.thumbnails.images[3].url, // index 3 gives high resolution thumbnail
           objUrl : "unknown", // TODO: sketchfab supports gltf
           mtlUrl : "unknown",
           webUrl : viewerUrl,
