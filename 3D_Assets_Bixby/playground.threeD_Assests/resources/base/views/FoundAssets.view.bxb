@@ -37,18 +37,4 @@ result-view {
         }
       }
     }
-  
-    conversation-drivers {
-    if(size(models) == 1) {
-      conversation-driver {
-        template ("Animate it")
-      }
-      conversation-driver {
-        template ("Make a sound")
-      }
-      conversation-driver {
-        template ("Learn more about it")
-      }
-    }
-  }
  }
