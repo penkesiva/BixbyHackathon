@@ -9,4 +9,10 @@ Sample Utterances:
         * Display Three Dimentional view of Golden Gate Bridge
         * Show 3D view of Animals
         
-[2] MVGO is working in-progress Bixby capsule to get MountainView Go shuttle information.
+[2]
+
+MVGO is working in-progress Bixby capsule to get MountainView Go shuttle information.
+
+[3]
+
+MVGO_Android is a sample Android app to makes API calls to mvgo webservice.
