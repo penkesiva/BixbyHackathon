@@ -3,3 +3,8 @@ train (t-67t3m5wd0m9mlkxgegi4pornc) {
   plan (Y2BmUCzISaxML8ovzUvRK8koSk11iXcsLk4tLinWM3bxzU9JzWHQwK0kODWxKDkDqrCYQY2QyuCSosy8dAYmBkYgZgCSjAwgAOUDAA==)
   last-modified (1552087931722)
 }
+train (t-68nlv00ksef7pr7zrk44qtaj2) {
+  utterance ("[g:Search3DModels] render (The Solar System)[v:SearchString] in 3 dimensions")
+  plan (Y2BmUMjPSy1OzEupSi3KL9YryShKTXWJdywuTi0p1vPNT0nNYdDEoyI4NbEoOcPYBayymEGdoNLgkqLMvHQGJgZGIGYAkowMIADlAwA=)
+  last-modified (1559787073051)
+}

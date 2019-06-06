@@ -1,0 +1,10 @@
+train (t-jbfx9wji6tig28ol3qy6cuffl) {
+  utterance ("[g:Search3DModels] search views of (Cars)[v:SearchString]")
+  plan (Y2BmUMjPSy1OzEupSi3KL9YryShKTXWJdywuTi0p1vPNT0nNYdDEoyI4NbEoOcPYBayymEGdoNLgkqLMvHQGJgZGIGYAkowMIADlAwA=)
+  last-modified (1559786862773)
+}
+train (t-jz8djbynqxxoypol1noghaki4) {
+  utterance ("[g:Search3DModels] Find 3 dimensional models of the (Universe)[v:SearchString]")
+  plan (Y2BmUMjPSy1OzEupSi3KL9YryShKTXWJdywuTi0p1vPNT0nNYdDEoyI4NbEoOcPYBayymEGdoNLgkqLMvHQGJgZGIGYAkowMIADlAwA=)
+  last-modified (1559786785116)
+}

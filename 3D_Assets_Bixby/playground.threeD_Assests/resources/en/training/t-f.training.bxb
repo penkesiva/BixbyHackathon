@@ -1,3 +1,8 @@
+train (t-f47ct1kk6s3cs4x5b9ssznvp8) {
+  utterance ("[g:Search3DModels] Show me the (streets of San Francisco)[v:SearchString] in 3D")
+  plan (Y2BmUMjPSy1OzEupSi3KL9YryShKTXWJdywuTi0p1vPNT0nNYdDEoyI4NbEoOcPYBayymEGdoNLgkqLMvHQGJgZGIGYAkowMIADlAwA=)
+  last-modified (1559787249398)
+}
 train (t-fbcgpttbojsxkq3xx0o87483o) {
   utterance ("[g:Search3DModels] Show Three Dimensional object of (TRex)[v:SearchString]")
   plan (Y2BmUCzISaxML8ovzUvRK8koSk11iXcsLk4tLinWM3bxzU9JzWHQwK0kODWxKDkDqrCYQY2QyuCSosy8dAYmBkYgZgCSjAwgAOUDAA==)

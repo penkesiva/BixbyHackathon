@@ -3,6 +3,11 @@ train (t-ifh5l7bv6jioib20o5nguprmp) {
   plan (Y2BmUCzISaxML8ovzUvRK8koSk11iXcsLk4tLinWM3bxzU9JzWHQwK0kODWxKDkDqrCYQY2QyuCSosy8dAYmBkYgZgCSjAwgAOUDAA==)
   last-modified (1552087969700)
 }
+train (t-iln33929xcwb64t4zzant5nxv) {
+  utterance ("[g:Search3DModels] 3D (solar system)[v:SearchString]")
+  plan (Y2BmUMjPSy1OzEupSi3KL9YryShKTXWJdywuTi0p1vPNT0nNYdDEoyI4NbEoOcPYBayymEGdoNLgkqLMvHQGJgZGIGYAkowMIADlAwA=)
+  last-modified (1559787129573)
+}
 train (t-iq41fxpn38d7ldwcb3syxwprz) {
   utterance ("[g:Search3DModels] Find 3d asset of (Mickey Mouse)[v:SearchString]")
   plan (Y2BmUCzISaxML8ovzUvRK8koSk11iXcsLk4tLinWM3bxzU9JzWHQwK0kODWxKDkDqrCYQY2QyuCSosy8dAYmBkYgZgCSjAwgAOUDAA==)

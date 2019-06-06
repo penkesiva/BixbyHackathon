@@ -1,0 +1,10 @@
+train (t-wr4i19jlhekgqupgddb1kkrps) {
+  utterance ("[g:Search3DModels] show (Solar System)[v:SearchString] models")
+  plan (Y2BmUMjPSy1OzEupSi3KL9YryShKTXWJdywuTi0p1vPNT0nNYdDEoyI4NbEoOcPYBayymEGdoNLgkqLMvHQGJgZGIGYAkowMIADlAwA=)
+  last-modified (1559787100414)
+}
+train (t-wuimlj346wb2u1cwh0rpgvbxs) {
+  utterance ("[g:Search3DModels] Show me the (streets of San Fransciso)[v:SearchString] in 3D")
+  plan (Y2BmUMjPSy1OzEupSi3KL9YryShKTXWJdywuTi0p1vPNT0nNYdDEoyI4NbEoOcPYBayymEGdoNLgkqLMvHQGJgZGIGYAkowMIADlAwA=)
+  last-modified (1559786700856)
+}

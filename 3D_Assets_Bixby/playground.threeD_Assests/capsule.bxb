@@ -1,11 +1,14 @@
 capsule {
   id (onesandzeros.threeD_Assets)
-  version (0.1.0)
+  version (1.0.0)
   format (3)
   targets {
     target (bixby-mobile-en-US)
   }
-   capsule-imports {
-     import (viv.punchoutToApp) {as (punchoutToApp) version (1.0.0)}
-   }
+  store-sections {
+    section (ArtAndLifestyle)
+  }
+  capsule-imports {
+     import (viv.punchoutToApp) {as (punchoutToApp) version (1.0.3)}
+  }
 }

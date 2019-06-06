@@ -1,0 +1,15 @@
+train (t-3bhxpwefxpxvjqeb7hal9k9xd) {
+  utterance ("[g:Search3DModels] Find 3D views of (Cars)[v:SearchString]")
+  plan (Y2BmUMjPSy1OzEupSi3KL9YryShKTXWJdywuTi0p1vPNT0nNYdDEoyI4NbEoOcPYBayymEGdoNLgkqLMvHQGJgZGIGYAkowMIADlAwA=)
+  last-modified (1559786810871)
+}
+train (t-3jq42d4ojwqn3w6l8ml3wzdhe) {
+  utterance ("[g:Search3DModels] 3D models of (Cars)[v:SearchString]")
+  plan (Y2BmUMjPSy1OzEupSi3KL9YryShKTXWJdywuTi0p1vPNT0nNYdDEoyI4NbEoOcPYBayymEGdoNLgkqLMvHQGJgZGIGYAkowMIADlAwA=)
+  last-modified (1559786945222)
+}
+train (t-3o2vmjxfpwbav9e9z382cqgbs) {
+  utterance ("[g:Search3DModels] get 3D models that have (Cars)[v:SearchString]")
+  plan (Y2BmUMjPSy1OzEupSi3KL9YryShKTXWJdywuTi0p1vPNT0nNYdDEoyI4NbEoOcPYBayymEGdoNLgkqLMvHQGJgZGIGYAkowMIADlAwA=)
+  last-modified (1559786918310)
+}
