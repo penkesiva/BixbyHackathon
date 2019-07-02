@@ -1,0 +1,7 @@
+hints {
+    uncategorized {
+        utterance (find three Dimensional models of a toast)
+        utterance (Get me 3D assets of Space Shuttle)
+        utterance (3D models of AR Glasses)
+    }
+}

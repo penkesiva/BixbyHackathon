@@ -1,10 +1,10 @@
-description {
-  displayName (3D Assets)
-  companyName (Ones And Zeros)
-  iconUrl (https://i.ibb.co/S6YvfBy/38-DCADA6-4129-4600-8-E59-2-FA39-C9-C1-C4-C.jpg)
+capsule-info {
+  display-name (3D Assets)
+  developer-name (Ones And Zeros)
+  icon-asset ("rooster.jpg")
   description ("We help Bixby users find millions of 3D Assets in a split second using voice. View realistic, fun and interactive 3D content without need to have a search across multiple web-services")
-  websiteUrl ( https://example.com/)
-  termsUrl ( https://example.com/terms)
+  website-url ( https://example.com/)
+  terms-url ( https://example.com/terms)
   privacy-policy-url (https://example.com/privacy)
   search-keywords {
     keyword (3D)

@@ -43,6 +43,40 @@ function searchFor3DAssest(searchString) {
   sfUrl = encodeURI(sfApiBaseUrl + searchString);
 
   //out.log('requested polyUrl ' + polyUrl + ' sfUrl: ' + sfUrl);
+  // lets get SketchFab response
+  try {
+    let response = my_http.getUrl(sfUrl, { format: 'json' });
+    let assets = response.results;
+    if (assets) {
+      for ( let i = 0; i < assets.length; i ++ ) {
+        // Found asset, lets parse JSON
+        let asset = assets[i];
+        let viewerUrl = asset.viewerUrl;
+        
+        // Look for assets with high res thumbnails
+        if( asset.thumbnails.images.length < 4 )
+          continue;
+
+        // build the model before adding it to the list of models
+        let model = {
+          displayName : asset.name,
+          authorName : asset.user.displayName,
+          thumbnailUrl : asset.thumbnails.images[3].url, // index 3 gives high resolution thumbnail
+          objUrl : "unknown", // TODO: sketchfab supports gltf
+          mtlUrl : "unknown",
+          webUrl : viewerUrl,
+          description : asset.description
+        };
+
+        models.push(model);
+      }
+    } else {
+      out.log("Oops.. No Assets found in SketchFab");
+    }
+  }
+  catch(err) {
+    out.log("Error in SkecthFab API call " + err);
+  }
 
   // lets get Poly response
   try {
@@ -81,41 +115,6 @@ function searchFor3DAssest(searchString) {
     }
   } catch(err) {
     out.log("Error in POLY API call " + err);
-  }
-  
-  // lets get SketchFab response
-  try {
-    let response = my_http.getUrl(sfUrl, { format: 'json' });
-    let assets = response.results;
-    if (assets) {
-      for ( let i = 0; i < assets.length; i ++ ) {
-        // Found asset, lets parse JSON
-        let asset = assets[i];
-        let viewerUrl = asset.viewerUrl;
-        
-        // Look for assets with high res thumbnails
-        if( asset.thumbnails.images.length < 4 )
-          continue;
-
-        // build the model before adding it to the list of models
-        let model = {
-          displayName : asset.name,
-          authorName : asset.user.displayName,
-          thumbnailUrl : asset.thumbnails.images[3].url, // index 3 gives high resolution thumbnail
-          objUrl : "unknown", // TODO: sketchfab supports gltf
-          mtlUrl : "unknown",
-          webUrl : viewerUrl,
-          description : asset.description
-        };
-
-        models.push(model);
-      }
-    } else {
-      out.log("Oops.. No Assets found in SketchFab");
-    }
-  }
-  catch(err) {
-    out.log("Error in SkecthFab API call " + err);
   }
 
   if (models.length > 0)

@@ -19,8 +19,8 @@ layout {
                   halign (Start)
                   slot1 {
                     text {
-                      value ("*** 3D rendering is not supported. Click here to launch in browser ***")
-                      style (Title_XS)
+                      value ("3D rendering is not supported yet! See Below")
+                      style (Detail_M_Soft)
                     }
                   }
                 }
@@ -39,22 +39,24 @@ layout {
                     style (Detail_M)
                   }
                 }
-                slot3 {
-                  paragraph {
-                    value ("View in Browser")
-                    style (Detail_M_Soft)
+              }
+          }
+          chin {
+            slot1 {
+                single-line {
+                  text {
+                    value {
+                      template ("Launch 3D view in Browser")
+                    }
+                    style(Detail_M)
                   }
                 }
               }
+              url {
+                template ("#{value(model.webUrl)}")
+              }
           }
-          on-click {
-           intent {
-             goal {@conversational viv.punchoutToApp.Punchout}
-             value-set: viv.punchoutToApp.PunchoutString  {$expr(model.webUrl)}
-           }
-         }
         }
-        
       }
     }
     section {
